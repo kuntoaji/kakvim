@@ -1,11 +1,27 @@
+" Set 'nocompatible' to ward off unexpected things that your distro might
+" have made, as well as sanely reset options when re-sourcing .vimrc
+set nocompatible
+
 " Install plugins with vim-plug https://github.com/junegunn/vim-plug
 " Reload and runs :PlugInstall to install plugins
 
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tomtom/tcomment_vim'
+Plug 'mileszs/ack.vim'
 
 call plug#end()
+
+" Use The Silver Searcher if available
+" https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+  cnoreabbrev ag Ack
+  cnoreabbrev aG Ack
+  cnoreabbrev Ag Ack
+  cnoreabbrev AG Ack
+endif
 
 " Mappings
 
@@ -18,15 +34,18 @@ nmap <C-K> <C-W>k
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
 
-" enable syntax highlighting
+" Enable syntax highlighting
 syntax on
 
-" don't wrap long lines
+" Don't wrap long lines
 set nowrap
 
-" use 2 spaces for tabs
+" Use 2 spaces for tabs
 set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set smarttab
+
+" Automatically removing all trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
