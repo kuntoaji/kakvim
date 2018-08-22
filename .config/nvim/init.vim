@@ -12,6 +12,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'mileszs/ack.vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'slim-template/vim-slim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -56,5 +57,9 @@ autocmd BufWritePre * %s/\s\+$//e
 set background=dark
 silent! colorscheme solarized8_high
 
-" enable line numbers, and don't make them any wider than necessary
+" Enable line numbers, and don't make them any wider than necessary
 set number numberwidth=2
+
+" Mapping CtrlP command
+nnoremap <Leader>b :<C-U>CtrlPBuffer<CR>
+nnoremap <Leader>t :<C-U>CtrlP<CR>
