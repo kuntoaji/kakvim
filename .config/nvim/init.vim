@@ -8,4 +8,12 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 call plug#end()
 
 " Mappings
+
+" Open NERDTreeToggle
 nmap <leader>g :NERDTreeToggle<CR>
+
+" Switch between panes
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-H> <C-W>h
+nmap <C-L> <C-W>l
