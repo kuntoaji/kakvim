@@ -54,3 +54,6 @@ autocmd BufWritePre * %s/\s\+$//e
 " Set default colorscheme to solarized
 set background=dark
 silent! colorscheme solarized8_high
+
+" enable line numbers, and don't make them any wider than necessary
+set number numberwidth=2
