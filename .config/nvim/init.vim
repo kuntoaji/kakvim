@@ -10,6 +10,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tomtom/tcomment_vim'
 Plug 'mileszs/ack.vim'
+Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 
@@ -49,3 +50,7 @@ set smarttab
 
 " Automatically removing all trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
+
+" Set default colorscheme to solarized
+set background=dark
+silent! colorscheme solarized8_high
