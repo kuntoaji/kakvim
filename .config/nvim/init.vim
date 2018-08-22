@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tomtom/tcomment_vim'
 Plug 'mileszs/ack.vim'
 Plug 'lifepillar/vim-solarized8'
+Plug 'slim-template/vim-slim'
 
 call plug#end()
 
