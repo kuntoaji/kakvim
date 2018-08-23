@@ -55,7 +55,7 @@ set number numberwidth=2
 " -- Mappings --
 
 " Toggle NERDTreeToggle
-nmap <leader>g :NERDTreeToggle<CR>
+nmap <Leader>g :NERDTreeToggle<CR>
 
 " Switch between panes
 nmap <C-J> <C-W>j
