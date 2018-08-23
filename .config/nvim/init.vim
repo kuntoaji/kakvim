@@ -13,6 +13,7 @@ Plug 'mileszs/ack.vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'slim-template/vim-slim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -48,7 +49,7 @@ autocmd BufWritePre * %s/\s\+$//e
 set background=dark
 silent! colorscheme solarized8_high
 
-" Enable line numbers, and don't make them any wider than necessary
+" Enable line numbers and don't make them any wider than necessary
 set number numberwidth=2
 
 " -- Mappings --
