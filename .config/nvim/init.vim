@@ -26,16 +26,7 @@ if executable('ag')
   cnoreabbrev AG Ack
 endif
 
-" Mappings
-
-" Toggle NERDTreeToggle
-nmap <leader>g :NERDTreeToggle<CR>
-
-" Switch between panes
-nmap <C-J> <C-W>j
-nmap <C-K> <C-W>k
-nmap <C-H> <C-W>h
-nmap <C-L> <C-W>l
+" -- Configurations --
 
 " Enable syntax highlighting
 syntax on
@@ -50,7 +41,7 @@ set softtabstop=2
 set shiftwidth=2
 set smarttab
 
-" Automatically removing all trailing whitespace
+" Automatically remove all trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
 
 " Set default colorscheme to solarized
@@ -59,6 +50,17 @@ silent! colorscheme solarized8_high
 
 " Enable line numbers, and don't make them any wider than necessary
 set number numberwidth=2
+
+" -- Mappings --
+
+" Toggle NERDTreeToggle
+nmap <leader>g :NERDTreeToggle<CR>
+
+" Switch between panes
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-H> <C-W>h
+nmap <C-L> <C-W>l
 
 " Mapping CtrlP command
 nnoremap <Leader>b :<C-U>CtrlPBuffer<CR>
