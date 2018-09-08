@@ -14,6 +14,8 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'slim-template/vim-slim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'ervandew/supertab'
+Plug 'tpope/vim-rails'
 
 call plug#end()
 
