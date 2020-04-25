@@ -4,7 +4,7 @@ My Neovim configuration for Ruby (on Rails) development with VimR, Terminal in m
 ## Installation
 1. Make sure [Neovim](https://neovim.io) and [vim-plug](https://github.com/junegunn/vim-plug) are installed.
 2. Clone repository: `git clone git@github.com:kuntoaji/kakvim.git`
-3. Load Kakvim with symlink: `ln -s ~/.config/nvim/ /yourpath/kakvim/.config/nvim`
+3. Copy Kakvim configuration or load with symlink, example command on Ubuntu: `ln -s ~/your/path/kakvim/.config/nvim/ .config/nvim`
 4. run `nvim` in terminal to open Neovim
 5. run `:PlugInstall` to install all plugins
 6. reload Neovim
