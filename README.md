@@ -13,15 +13,15 @@ My Neovim configuration for Ruby (on Rails) development. I use this configuratio
 
 ## Plugins
 
-* File system explorer - [preser/nerdtree](https://github.com/preservim/nerdtree)
-* Code comment - [tomtom/tcomment_vim](https://github.com/tomtom/tcomment_vim)
-* Search from Vim - [mileszs/ack.vim](https://github.com/mileszs/ack.vim)
-* Another Solarized theme for Vim - [lifepillar/vim-solarized8](https://github.com/lifepillar/vim-solarized8)
-* Slim syntax highlighting for Vim - [slim-template/vim-slim](https://github.com/slim-template/vim-slim)
-* Full path fuzzy file, buffer, mru, tag, ... finder for Vim - [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
-* Git - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
-* Completion with Tab - [ervandew/supertab](https://github.com/ervandew/supertab)
-* Vim plugin for editing Ruby on Rails applications - [tpope/vim-rails](https://github.com/tpope/vim-rails)
+* [preser/nerdtree](https://github.com/preservim/nerdtree) - File system explorer
+* [tomtom/tcomment_vim](https://github.com/tomtom/tcomment_vim) - Code comment
+* [mileszs/ack.vim](https://github.com/mileszs/ack.vim) - Search from Vim
+* [lifepillar/vim-solarized8](https://github.com/lifepillar/vim-solarized8) - Another Solarized theme for Vim
+* [slim-template/vim-slim](https://github.com/slim-template/vim-slim) - Slim syntax highlighting for Vim
+* [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim) - Full path fuzzy file, buffer, mru, tag, ... finder for Vim
+* [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive) - Git
+* [ervandew/supertab](https://github.com/ervandew/supertab) - Completion with Tab
+* [tpope/vim-rails](https://github.com/tpope/vim-rails) - Vim plugin for editing Ruby on Rails applications
 
 ## Mappings
 
