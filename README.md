@@ -15,7 +15,7 @@ My Neovim configuration for Ruby (on Rails) development. I use this configuratio
 
 * [preser/nerdtree](https://github.com/preservim/nerdtree) - File system explorer
 * [tomtom/tcomment_vim](https://github.com/tomtom/tcomment_vim) - Code comment
-* [mileszs/ack.vim](https://github.com/mileszs/ack.vim) - Search from Vim
+* [mileszs/ack.vim](https://github.com/mileszs/ack.vim) - Search from Vim, if you use Mac, you need install `ack` command first: `brew install ack`
 * [lifepillar/vim-solarized8](https://github.com/lifepillar/vim-solarized8) - Another Solarized theme for Vim
 * [slim-template/vim-slim](https://github.com/slim-template/vim-slim) - Slim syntax highlighting for Vim
 * [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim) - Full path fuzzy file, buffer, mru, tag, ... finder for Vim
