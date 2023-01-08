@@ -17,6 +17,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-rails'
 
+" Uncomment if you want to enable Github copilot plugin
+" Plug 'github/copilot.vim'
+
 call plug#end()
 
 " Use The Silver Searcher if available

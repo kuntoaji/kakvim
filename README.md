@@ -22,6 +22,7 @@ My Neovim configuration for Ruby (on Rails) development. I use this configuratio
 * [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive) - Git
 * [ervandew/supertab](https://github.com/ervandew/supertab) - Completion with Tab
 * [tpope/vim-rails](https://github.com/tpope/vim-rails) - Vim plugin for editing Ruby on Rails applications
+* [github/copilot.vim](https://github.com/github/copilot.vim) - Vim/Neovim plugin for GitHub Copilot, uncomment to enable this plugin
 
 ## Mappings
 
