@@ -18,7 +18,7 @@ Plug 'ervandew/supertab'
 Plug 'tpope/vim-rails'
 
 " Uncomment if you want to enable Github copilot plugin
-" Plug 'github/copilot.vim'
+Plug 'github/copilot.vim'
 
 call plug#end()
 

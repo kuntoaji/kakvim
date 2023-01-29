@@ -1,30 +1,44 @@
-# kakvim
+# kakvim: Neovim Configuration for Ruby (on Rails) Development
 
-My Neovim configuration for Ruby (on Rails) development. I use this configuration for terminal in macOS and Ubuntu.
+My highly-configured Neovim setup optimized for Ruby (on Rails) development, suitable for both terminal use on macOS and Linux.
+
+## Features
+
+* Includes a collection of essential plugins for productivity and convenience
+* Offers a visually pleasing interface with the Solarized theme
+* Supports Git integration with `vim-fugitive`
+* Provides efficient code navigation and comment capabilities with `NERDTree` and `tcomment`
+* Includes support for the Slim template language
+* Provides powerful fuzzy file search with `CtrlP`
+* Offers tab completion with `Supertab`
+* Includes support for editing Ruby on Rails applications with `vim-rails`
+* Offers fast, flexible search with `ack.vim`, including string pattern matching
 
 ## Installation
 
-1. Make sure [Neovim](https://neovim.io) and [vim-plug](https://github.com/junegunn/vim-plug) are installed.
-2. Clone repository: `git clone git@github.com:kuntoaji/kakvim.git`
-3. Copy Kakvim configuration from `.config/nvim/init.vim` to your Neovim init.vim or load with symlink, example command on Ubuntu: `ln -s ~/your/path/kakvim/.config/nvim/ ~/.config/nvim`
-4. run `nvim` in terminal to open Neovim
-5. run `:PlugInstall` to install all plugins
-6. reload Neovim
+1. Ensure that you have [Neovim](https://neovim.io) and [vim-plug](https://github.com/junegunn/vim-plug) installed on your system.
+2. Clone the repository: `git clone git@github.com:kuntoaji/kakvim.git`
+3. Copy the Kakvim configuration file from `nvim/init.vim` to your Neovim `init.vim` or create a symlink with the command: `ln -s ~/your/path/kakvim/nvim/ ~/.config/nvim`
+4. Open Neovim with the command nvim
+5. Run `:PlugInstall` to install all plugins
+6. Reload Neovim
 
-## Plugins
+## Included Plugins
 
 * [preser/nerdtree](https://github.com/preservim/nerdtree) - File system explorer
 * [tomtom/tcomment_vim](https://github.com/tomtom/tcomment_vim) - Code comment
-* [mileszs/ack.vim](https://github.com/mileszs/ack.vim) - Search from Vim, if you use Mac, you need install `ack` command first: `brew install ack`
-* [lifepillar/vim-solarized8](https://github.com/lifepillar/vim-solarized8) - Another Solarized theme for Vim
+* [mileszs/ack.vim](https://github.com/mileszs/ack.vim) - Search tool for Vim (requires ack to be installed on Mac): `brew install ack`
+* [lifepillar/vim-solarized8](https://github.com/lifepillar/vim-solarized8) - Solarized theme for Vim
 * [slim-template/vim-slim](https://github.com/slim-template/vim-slim) - Slim syntax highlighting for Vim
-* [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim) - Full path fuzzy file, buffer, mru, tag, ... finder for Vim
-* [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive) - Git
-* [ervandew/supertab](https://github.com/ervandew/supertab) - Completion with Tab
+* [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim) - Full path fuzzy file, buffer, mru, tag finder for Vim
+* [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive) - Git integration for Vim
+* [ervandew/supertab](https://github.com/ervandew/supertab) - Tab completion
 * [tpope/vim-rails](https://github.com/tpope/vim-rails) - Vim plugin for editing Ruby on Rails applications
-* [github/copilot.vim](https://github.com/github/copilot.vim) - Vim/Neovim plugin for GitHub Copilot, uncomment to enable this plugin
+* [github/copilot.vim](https://github.com/github/copilot.vim) - Vim/Neovim plugin for GitHub Copilot
 
-## Mappings
+## Key Mappings
+
+The following custom mappings are available in kakvim:
 
 | Keyword        | Mapping                        |
 | -------------  | -------------                  |
