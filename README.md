@@ -47,3 +47,8 @@ The following custom mappings are available in kakvim:
 | Switch Panes   | ctrl-h, ctrl-j, ctrl-k, ctrl-l |
 | CtrlPBuffer    | \b                             |
 | CtrlP          | \t                             |
+
+## Font Configuration
+
+This configuration uses [Fira Code Retina](https://github.com/tonsky/FiraCode) font with size 13 for Neovim GUI. If Fira Code Retina is not found, it
+will fall back to `Monaco` font with size 13.

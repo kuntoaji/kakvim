@@ -57,6 +57,19 @@ silent! colorscheme solarized8_high
 " Enable line numbers and don't make them any wider than necessary
 set number numberwidth=2
 
+" Set GUI font
+if has('gui_running')
+  if executable('fc-list')
+    let font_exists = system('fc-list | grep -i -q "Fira Code Retina"')
+
+    if font_exists == 0
+      set guifont=Fira_Code_Retina:h13
+    else
+      set guifont=Monaco:h13
+    endif
+  endif
+endif
+
 " -- Mappings --
 
 " Toggle NERDTreeToggle
