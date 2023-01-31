@@ -16,8 +16,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-rails'
-
-" Uncomment if you want to enable Github copilot plugin
 Plug 'github/copilot.vim'
 
 call plug#end()
@@ -58,6 +56,7 @@ silent! colorscheme solarized8_high
 set number numberwidth=2
 
 " Set GUI font
+" get the Fira Code font from https://github.com/tonsky/FiraCode
 if has('gui_running')
   if executable('fc-list')
     let font_exists = system('fc-list | grep -i -q "Fira Code Retina"')
