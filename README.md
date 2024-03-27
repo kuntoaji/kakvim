@@ -29,6 +29,7 @@ My highly-configured Neovim setup optimized for Ruby (on Rails) development, sui
 * [tomtom/tcomment_vim](https://github.com/tomtom/tcomment_vim) - Code comment
 * [mileszs/ack.vim](https://github.com/mileszs/ack.vim) - Search tool for Vim (requires ack to be installed on Mac): `brew install ack`
 * [lifepillar/vim-solarized8](https://github.com/lifepillar/vim-solarized8) - Solarized theme for Vim
+* [morhetz/gruvbox](https://github.com/morhetz/gruvbox) - Gruvbox as default colorscheme
 * [slim-template/vim-slim](https://github.com/slim-template/vim-slim) - Slim syntax highlighting for Vim
 * [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim) - Full path fuzzy file, buffer, mru, tag finder for Vim
 * [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive) - Git integration for Vim

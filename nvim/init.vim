@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tomtom/tcomment_vim'
 Plug 'mileszs/ack.vim'
 Plug 'lifepillar/vim-solarized8'
+Plug 'morhetz/gruvbox'
 Plug 'slim-template/vim-slim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
@@ -50,7 +51,7 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Set default colorscheme to solarized
 set background=dark
-silent! colorscheme solarized8_high
+silent! colorscheme gruvbox
 
 " Enable line numbers and don't make them any wider than necessary
 set number numberwidth=2
