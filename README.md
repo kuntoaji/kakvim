@@ -16,12 +16,13 @@ My highly-configured Neovim setup optimized for Ruby (on Rails) development, sui
 
 ## Installation
 
-1. Ensure that you have [Neovim](https://neovim.io) and [vim-plug](https://github.com/junegunn/vim-plug) installed on your system.
-2. Clone the repository: `git clone git@github.com:kuntoaji/kakvim.git`
-3. Copy the Kakvim configuration file from `nvim/init.vim` to your Neovim `init.vim` or create a symlink with the command: `ln -s ~/your/path/kakvim/nvim/ ~/.config/nvim`
-4. Open Neovim with the command nvim
-5. Run `:PlugInstall` to install all plugins
-6. Reload Neovim
+1. Ensure that you have [Neovim](https://neovim.io) installed on your system.
+2. Install [vim-plug](https://github.com/junegunn/vim-plug).
+3. Clone the repository: `git clone git@github.com:kuntoaji/kakvim.git`
+4. Copy the Kakvim configuration file from `nvim/init.vim` to your Neovim `init.vim` or create a symlink with the command: `ln -s ~/your/path/kakvim/nvim/ ~/.config/nvim`
+5. Open Neovim with the command nvim
+6. Run `:PlugInstall` to install all plugins
+7. Reload Neovim
 
 ## Included Plugins
 
