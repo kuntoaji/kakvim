@@ -17,7 +17,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-rails'
-Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -49,7 +48,7 @@ set smarttab
 " Automatically remove all trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
 
-" Set default colorscheme to solarized
+" Set default colorscheme
 set background=dark
 silent! colorscheme gruvbox
 
