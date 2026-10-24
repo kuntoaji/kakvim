@@ -107,6 +107,86 @@ The Leader key is `\` (backslash). `\t` means: press `\`, then `t`.
 
 Forgot a core Neovim command, such as a text object, a macro or search and replace? See the [Cheat Sheet](docs/cheatsheet.md).
 
+## Example usage
+
+This walkthrough follows a typical task in a Rails app: fix a bug in a model, check its spec, and commit. Each step lists the keys or commands to use.
+
+### 1. Open a project, a folder or a file
+
+```sh
+cd ~/code/my_rails_app
+nvim .                        # open the project. The file tree shows the folder
+nvim app/models               # open a folder in the file tree
+nvim app/models/user.rb       # open one file
+nvim +42 app/models/user.rb   # open a file at line 42
+```
+
+### 2. Find the file you need
+
+| Task | Keys or command |
+| --- | --- |
+| Open or close the file tree | `\g` |
+| Open a file or folder in the tree | Move to it, then press `<CR>` |
+| Create a file in the tree | `a`, type the name, press `<CR>` |
+| Find a file by name | `\t`, type part of the name, such as `models/user` |
+| Open a recent file | `\fr` |
+| Find text in the whole project | `\fg`, then type the text |
+| Open a Rails file by type | `:Emodel user`, `:Econtroller users`, `:Eview users/index` |
+
+In any finder popup, press `<CR>` to open the result, or `<C-v>` to open it in a vertical split.
+
+### 3. Move around and edit
+
+| Task | Keys or command |
+| --- | --- |
+| Go to a line | `:42` |
+| Search in the file | `/full_name`, then `n` for the next match |
+| Change a word | `ciw`, type the new word, press `<Esc>` |
+| Comment or uncomment a line | `gcc` |
+| Complete a word or method | Start typing. Press `<Tab>` to choose, then `<C-y>` to accept |
+| Undo / redo | `u` / `<C-r>` |
+| Save | `:w` |
+
+### 4. Understand the code (ruby-lsp)
+
+| Task | Keys |
+| --- | --- |
+| Show documentation | `K` |
+| Go to the definition | `<C-]>`. Press `<C-o>` to come back |
+| List all references | `grr` |
+| Rename a method everywhere | `grn` |
+| Go to the next error or warning | `]d` |
+| List all problems in the file | `\x` |
+
+### 5. Jump between Rails files
+
+| Task | Keys |
+| --- | --- |
+| Model to its spec, and back | `\ra` |
+| Controller action to its view | `\rr` |
+| Open the partial or model under the cursor | `gf` |
+| Split the window and open the spec beside the model | `<C-w>v`, then `\ra` |
+| Move between the panes | `<C-h>` / `<C-l>` |
+
+### 6. Review and commit with Git
+
+| Task | Keys |
+| --- | --- |
+| Go to the next changed block | `]h` |
+| Preview the change | `\hp` |
+| Undo a change you do not want | `\hr` |
+| Open Git status | `\Gs` |
+| Stage a file in the status window | Move to it, then press `s` |
+| Commit | `cc`, write the message, then `:wq` |
+
+### 7. Quit
+
+| Task | Command |
+| --- | --- |
+| Close the current pane | `:q` |
+| Save all files and quit | `:wqa` |
+| Quit without saving | `:qa!` |
+
 ## Update
 
 1. Pull the latest kakvim:
