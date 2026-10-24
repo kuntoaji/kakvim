@@ -21,6 +21,8 @@ The **Source** column tells you where a key comes from:
 - **built-in**: a default Neovim key. It works in any Neovim 0.12 setup.
 - **plugin**: defined by a plugin inside its own window (for example, the file tree).
 
+This guide covers kakvim's shortcuts. For core Neovim editing (motions, text objects, registers, macros, search and replace), see the [Cheat Sheet](cheatsheet.md).
+
 **Tip:** You do not need to memorize this page. Press `\` and wait half a second. A popup (which-key) shows every Leader key and what it does.
 
 ## 2. Daily workflow

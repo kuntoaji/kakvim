@@ -22,6 +22,7 @@ All notable changes to kakvim are listed here. The format follows [Keep a Change
 - Treesitter highlighting and indentation.
 - gitsigns.nvim for Git hunks, and which-key.nvim for shortcut hints.
 - New shortcuts for search, Git, Rails and diagnostics. See `docs/keymaps.md`.
+- `docs/cheatsheet.md`: a quick reference for core Neovim commands and keys.
 - `nvim-pack-lock.json` pins every plugin to an exact commit.
 - MIT license, contributing guide, issue and pull request templates, and CI.
 

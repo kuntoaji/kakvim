@@ -105,6 +105,8 @@ The Leader key is `\` (backslash). `\t` means: press `\`, then `t`.
 
 **Read the full [Shortcut Guide](docs/keymaps.md).** It lists every key, grouped by task, and explains how to add your own.
 
+Forgot a core Neovim command, such as a text object, a macro or search and replace? See the [Cheat Sheet](docs/cheatsheet.md).
+
 ## Update
 
 1. Pull the latest kakvim:
