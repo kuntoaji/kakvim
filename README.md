@@ -26,7 +26,7 @@ kakvim uses what Neovim 0.12 ships with: the built-in plugin manager (`vim.pack`
 | [ruby-lsp](https://shopify.github.io/ruby-lsp/) | Ruby code intelligence | `gem install ruby-lsp` |
 | A [Nerd Font](https://www.nerdfonts.com) (optional) | File icons | `brew install --cask font-jetbrains-mono-nerd-font` |
 
-On Linux, install the same tools with your package manager. Install ruby-lsp with the same Ruby version that your project uses.
+On Linux, install the same tools with your package manager. Check that your distribution ships Neovim 0.12 or newer. If it does not, use the AppImage or tarball from the [Neovim releases page](https://github.com/neovim/neovim/releases). Install ruby-lsp with the same Ruby version that your project uses.
 
 ## Installation
 
@@ -40,6 +40,7 @@ On Linux, install the same tools with your package manager. Install ruby-lsp wit
 
    ```sh
    git clone https://github.com/kuntoaji/kakvim.git ~/kakvim
+   mkdir -p ~/.config
    ln -s ~/kakvim/nvim ~/.config/nvim
    ```
 
@@ -52,6 +53,20 @@ On Linux, install the same tools with your package manager. Install ruby-lsp wit
    On the first start, kakvim downloads all plugins at the exact commits in `nvim-pack-lock.json`. Treesitter parsers build in the background. Restart Neovim when the downloads finish.
 
 4. Run `:checkhealth vim.pack vim.lsp nvim-treesitter` and fix any errors.
+
+### No plugin manager to install
+
+kakvim uses `vim.pack`, the plugin manager built into Neovim 0.12. You do not download a plugin manager such as vim-plug, and you do not run an install command such as `:PlugInstall`. Use the steps above on every new machine.
+
+| Step on a new machine | vim-plug | vim.pack (kakvim) |
+| --- | --- | --- |
+| Install the plugin manager | Download `plug.vim` by hand | Not needed. It ships with Neovim |
+| Install plugins | Run `:PlugInstall` | Automatic on the first start |
+| Plugin versions | The newest version on that day | The exact commits in `nvim-pack-lock.json` |
+
+`vim.pack` installs only Neovim plugins. Install Neovim itself and the other tools in [Requirements](#requirements) on each machine.
+
+To keep the same plugin versions on all your machines, commit and push `nvim/nvim-pack-lock.json` every time you add or update a plugin.
 
 ### Try kakvim without replacing your config
 
