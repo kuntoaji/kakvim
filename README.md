@@ -1,56 +1,175 @@
-# kakvim: Neovim Configuration for Ruby (on Rails) Development
+# kakvim
 
-My highly-configured Neovim setup optimized for Ruby (on Rails) development, suitable for both terminal use on macOS and Linux.
+A small, fast Neovim configuration for Ruby on Rails development. It works in the terminal on macOS and Linux.
+
+kakvim uses what Neovim 0.12 ships with: the built-in plugin manager (`vim.pack`), the built-in LSP client, built-in commenting and built-in completion. It adds only the plugins that a Rails developer needs every day.
 
 ## Features
 
-* Includes a collection of essential plugins for productivity and convenience
-* Offers a visually pleasing interface with the Solarized theme
-* Supports Git integration with `vim-fugitive`
-* Provides efficient code navigation and comment capabilities with `NERDTree` and `tcomment`
-* Includes support for the Slim template language
-* Provides powerful fuzzy file search with `CtrlP`
-* Offers tab completion with `Supertab`
-* Includes support for editing Ruby on Rails applications with `vim-rails`
-* Offers fast, flexible search with `ack.vim`, including string pattern matching
+- **Find anything**: fuzzy file search, project-wide text search and recent files (Telescope).
+- **Rails navigation**: jump between model, controller, view and spec (vim-rails).
+- **Code intelligence**: go to definition, references, rename and diagnostics for Ruby and ERB (ruby-lsp).
+- **Syntax highlighting**: Treesitter for Ruby, ERB, HTML, CSS, JavaScript, YAML and JSON. Slim through vim-slim.
+- **Git**: change signs in the gutter, hunk preview and stage (gitsigns), and a full Git interface (fugitive).
+- **File tree**: nvim-tree, toggled with `\g`.
+- **Shortcut hints**: press `\` and wait. A popup shows every shortcut (which-key).
+- **Reproducible installs**: `nvim/nvim-pack-lock.json` pins every plugin to an exact commit.
+
+## Requirements
+
+| Tool | Why | Install (macOS) |
+| --- | --- | --- |
+| [Neovim](https://neovim.io) 0.12 or newer | The editor | `brew install neovim` |
+| git | Downloads plugins | `xcode-select --install` |
+| [ripgrep](https://github.com/BurntSushi/ripgrep) | Project-wide text search | `brew install ripgrep` |
+| [tree-sitter CLI](https://github.com/tree-sitter/tree-sitter) and a C compiler | Builds syntax parsers | `brew install tree-sitter-cli` |
+| [ruby-lsp](https://shopify.github.io/ruby-lsp/) | Ruby code intelligence | `gem install ruby-lsp` |
+| A [Nerd Font](https://www.nerdfonts.com) (optional) | File icons | `brew install --cask font-jetbrains-mono-nerd-font` |
+
+On Linux, install the same tools with your package manager. Install ruby-lsp with the same Ruby version that your project uses.
 
 ## Installation
 
-1. Ensure that you have [Neovim](https://neovim.io) installed on your system.
-2. Install [vim-plug](https://github.com/junegunn/vim-plug).
-3. Clone the repository: `git clone git@github.com:kuntoaji/kakvim.git`
-4. Copy the Kakvim configuration file from `nvim/init.vim` to your Neovim `init.vim` or create a symlink with the command: `ln -s ~/your/path/kakvim/nvim/ ~/.config/nvim`
-5. Open Neovim with the command nvim
-6. Run `:PlugInstall` to install all plugins
-7. Reload Neovim
+1. Back up your current config, if you have one:
 
-## Included Plugins
+   ```sh
+   mv ~/.config/nvim ~/.config/nvim.bak
+   ```
 
-* [preser/nerdtree](https://github.com/preservim/nerdtree) - File system explorer
-* [tomtom/tcomment_vim](https://github.com/tomtom/tcomment_vim) - Code comment
-* [mileszs/ack.vim](https://github.com/mileszs/ack.vim) - Search tool for Vim (requires ack to be installed on Mac): `brew install ack`
-* [lifepillar/vim-solarized8](https://github.com/lifepillar/vim-solarized8) - Solarized theme for Vim
-* [morhetz/gruvbox](https://github.com/morhetz/gruvbox) - Gruvbox as default colorscheme
-* [slim-template/vim-slim](https://github.com/slim-template/vim-slim) - Slim syntax highlighting for Vim
-* [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim) - Full path fuzzy file, buffer, mru, tag finder for Vim
-* [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive) - Git integration for Vim
-* [ervandew/supertab](https://github.com/ervandew/supertab) - Tab completion
-* [tpope/vim-rails](https://github.com/tpope/vim-rails) - Vim plugin for editing Ruby on Rails applications
-* [github/copilot.vim](https://github.com/github/copilot.vim) - Vim/Neovim plugin for GitHub Copilot
+2. Clone the repository and link the `nvim` folder:
 
-## Key Mappings
+   ```sh
+   git clone https://github.com/kuntoaji/kakvim.git ~/kakvim
+   ln -s ~/kakvim/nvim ~/.config/nvim
+   ```
 
-The following custom mappings are available in kakvim:
+3. Start Neovim:
 
-| Keyword        | Mapping                        |
-| -------------  | -------------                  |
-| Leader         | \                              |
-| NERDTreeToggle | \g                             |
-| Switch Panes   | ctrl-h, ctrl-j, ctrl-k, ctrl-l |
-| CtrlPBuffer    | \b                             |
-| CtrlP          | \t                             |
+   ```sh
+   nvim
+   ```
 
-## Font Configuration
+   On the first start, kakvim downloads all plugins at the exact commits in `nvim-pack-lock.json`. Treesitter parsers build in the background. Restart Neovim when the downloads finish.
 
-This configuration uses [Fira Code Retina](https://github.com/tonsky/FiraCode) font with size 13 for Neovim GUI. If Fira Code Retina is not found, it
-will fall back to `Monaco` font with size 13.
+4. Run `:checkhealth vim.pack vim.lsp nvim-treesitter` and fix any errors.
+
+### Try kakvim without replacing your config
+
+Neovim can keep several configs side by side with `NVIM_APPNAME`:
+
+```sh
+git clone https://github.com/kuntoaji/kakvim.git ~/kakvim
+ln -s ~/kakvim/nvim ~/.config/kakvim
+NVIM_APPNAME=kakvim nvim
+```
+
+### Enable file icons
+
+If your terminal uses a Nerd Font, open `nvim/lua/kakvim/options.lua` and set:
+
+```lua
+vim.g.have_nerd_font = true
+```
+
+## Shortcuts
+
+The Leader key is `\` (backslash). `\t` means: press `\`, then `t`.
+
+| Keys | Action |
+| --- | --- |
+| `\t` | Find files |
+| `\b` | Switch between open buffers |
+| `\fg` | Search text in the project |
+| `\g` | Open or close the file tree |
+| `<C-h>` `<C-j>` `<C-k>` `<C-l>` | Move between panes |
+| `\ra` | Go to the alternate file (model to spec) |
+| `gcc` | Comment or uncomment a line |
+| `K` | Show documentation |
+| `grr` / `grn` | List references / rename symbol |
+| `\Gs` | Git status |
+
+**Read the full [Shortcut Guide](docs/keymaps.md).** It lists every key, grouped by task, and explains how to add your own.
+
+## Update
+
+1. Pull the latest kakvim:
+
+   ```sh
+   cd ~/kakvim && git pull
+   ```
+
+2. In Neovim, install the plugin versions from the new lockfile:
+
+   ```vim
+   :lua vim.pack.update(nil, { target = 'lockfile' })
+   ```
+
+3. Read the list of changes. Type `:write` to apply them, or `:quit` to cancel.
+
+To update all plugins to their newest versions, run `:lua vim.pack.update()`. This changes `nvim-pack-lock.json`.
+
+## Migrate from the vim-plug version
+
+The old kakvim (`init.vim`) used vim-plug. After you pull the Lua version:
+
+1. Delete the old plugins and vim-plug:
+
+   ```sh
+   rm -rf ~/.local/share/nvim/plugged
+   rm -f ~/.local/share/nvim/site/autoload/plug.vim
+   ```
+
+2. Install the new requirements from the table above.
+3. Start Neovim. The new plugins install automatically.
+
+What changed:
+
+| Old | New |
+| --- | --- |
+| NERDTree | nvim-tree (`\g` still toggles it) |
+| CtrlP (`\t`, `\b`) | Telescope (same keys) |
+| ack.vim / `:Ag` | `\fg` (Telescope live grep) |
+| tcomment (`gcc`) | Built-in commenting (same keys) |
+| Supertab | Built-in completion. `<Tab>` still moves through the menu |
+
+## Uninstall
+
+```sh
+rm ~/.config/nvim
+rm -rf ~/.local/share/nvim/site/pack/core
+mv ~/.config/nvim.bak ~/.config/nvim   # restore your old config
+```
+
+## Troubleshooting
+
+| Problem | Fix |
+| --- | --- |
+| No syntax colors in Ruby files | Install the tree-sitter CLI, then run `:TSInstall ruby` |
+| `\fg` finds nothing | Install ripgrep |
+| `ruby-lsp` not found | Run `gem install ruby-lsp` with your project's Ruby version, and check that `ruby-lsp` is on your `PATH` |
+| Boxes or question marks instead of icons | Set `vim.g.have_nerd_font = false`, or install a Nerd Font |
+| Anything else | Run `:checkhealth` and read the errors |
+
+## Plugins
+
+| Plugin | Purpose |
+| --- | --- |
+| [ellisonleao/gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) | Color scheme |
+| [folke/which-key.nvim](https://github.com/folke/which-key.nvim) | Shortcut hints |
+| [nvim-tree/nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | File tree |
+| [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy finder |
+| [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim) | Library for Telescope |
+| [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive) | Git commands |
+| [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git signs and hunks |
+| [tpope/vim-rails](https://github.com/tpope/vim-rails) | Rails navigation |
+| [slim-template/vim-slim](https://github.com/slim-template/vim-slim) | Slim templates |
+| [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Syntax parsers |
+| [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Language server settings |
+
+## Contributing
+
+Bug reports, ideas and pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) first.
+
+## License
+
+[MIT](LICENSE)

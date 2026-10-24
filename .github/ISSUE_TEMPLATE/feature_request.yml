@@ -1,0 +1,18 @@
+name: Feature request
+description: Suggest a plugin, shortcut, or setting
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the task that is slow or hard today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Name the plugin, shortcut, or setting. Check docs/keymaps.md for free keys first.
+    validations:
+      required: true

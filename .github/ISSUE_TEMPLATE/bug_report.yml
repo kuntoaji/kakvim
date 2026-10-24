@@ -1,0 +1,41 @@
+name: Bug report
+description: Something in kakvim does not work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open a Ruby file
+        2. Press \t
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: version
+    attributes:
+      label: Output of `nvim --version`
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system and terminal
+      placeholder: macOS 15, Ghostty
+    validations:
+      required: true
+  - type: textarea
+    id: health
+    attributes:
+      label: Relevant `:checkhealth` output
+      description: Run `:checkhealth vim.pack vim.lsp nvim-treesitter` and paste the sections with errors.
+      render: text
