@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: JohnnyMorganz/stylua-action@76fd70c03e6340ceaf673366712db9b20560b402 # v5.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 2.6.0
+          args: --check nvim/ scripts/
+
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: rhysd/action-setup-vim@febef33995d6649302e9d88dda81e071b68f16a7 # v1.6.1
+        with:
+          neovim: true
+          version: v0.12.6
+      - name: Check shortcuts match docs/keymaps.md
+        run: nvim --clean --headless -l scripts/check-keymaps.lua
+      - name: Start kakvim with no errors
+        run: scripts/smoke-test.sh
