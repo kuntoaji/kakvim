@@ -41,17 +41,17 @@ ruby-lsp runs with the Ruby on your `PATH`, so install it once for each Ruby ver
 2. Clone the repository and run the install script:
 
    ```sh
-   git clone https://github.com/kuntoaji/kakvim.git ~/kakvim
-   ~/kakvim/scripts/install.sh
+   git clone https://github.com/kuntoaji/kakvim.git ~/your/path/kakvim
+   ~/your/path/kakvim/scripts/install.sh
    ```
 
-   The script links `~/kakvim/nvim` to `~/.config/nvim`. If `~/.config/nvim` already exists, the script moves it to `~/.config/nvim.bak.<timestamp>`. Then the script asks if you want to install ruby-lsp for your current Ruby. The default answer is No. To skip the question, add `--with-ruby-lsp` or `--no-ruby-lsp`.
+   The script links `~/your/path/kakvim/nvim` to `~/.config/nvim`. If `~/.config/nvim` already exists, the script moves it to `~/.config/nvim.bak.<timestamp>`. Then the script asks if you want to install ruby-lsp for your current Ruby. The default answer is No. To skip the question, add `--with-ruby-lsp` or `--no-ruby-lsp`.
 
    To install by hand instead, link the folder yourself:
 
    ```sh
    mkdir -p ~/.config
-   ln -s ~/kakvim/nvim ~/.config/nvim
+   ln -s ~/your/path/kakvim/nvim ~/.config/nvim
    ```
 
 3. Start Neovim:
@@ -83,8 +83,8 @@ To keep the same plugin versions on all your machines, commit and push `nvim/nvi
 Neovim can keep several configs side by side with `NVIM_APPNAME`:
 
 ```sh
-git clone https://github.com/kuntoaji/kakvim.git ~/kakvim
-ln -s ~/kakvim/nvim ~/.config/kakvim
+git clone https://github.com/kuntoaji/kakvim.git ~/your/path/kakvim
+ln -s ~/your/path/kakvim/nvim ~/.config/kakvim
 NVIM_APPNAME=kakvim nvim
 ```
 
@@ -202,7 +202,7 @@ In any finder popup, press `<CR>` to open the result, or `<C-v>` to open it in a
 1. Pull the latest kakvim:
 
    ```sh
-   cd ~/kakvim && git pull
+   cd ~/your/path/kakvim && git pull
    ```
 
 2. In Neovim, install the plugin versions from the new lockfile:
