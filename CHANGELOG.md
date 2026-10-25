@@ -30,6 +30,7 @@ All notable changes to kakvim are listed here. The format follows [Keep a Change
 
 - Saving a file no longer moves the cursor when trailing whitespace is removed.
 - The trailing-whitespace autocommand no longer runs twice after the config is reloaded.
+- Opening a Ruby file no longer shows a spawn error when ruby-lsp is not installed. kakvim now starts ruby-lsp only when it is on `PATH`.
 
 ### Removed
 

@@ -243,7 +243,7 @@ mv ~/.config/nvim.bak ~/.config/nvim   # restore your old config
 | --- | --- |
 | No syntax colors in Ruby files | Install the tree-sitter CLI, then run `:TSInstall ruby` |
 | `\fg` finds nothing | Install ripgrep |
-| `ruby-lsp` not found | Run `gem install ruby-lsp` with your project's Ruby version, and check that `ruby-lsp` is on your `PATH` |
+| `K`, `grr` or `<C-]>` do nothing in Ruby files | kakvim starts ruby-lsp only when it is on your `PATH`. Run `gem install ruby-lsp` with your project's Ruby version, then restart Neovim |
 | Boxes or question marks instead of icons | Set `vim.g.have_nerd_font = false`, or install a Nerd Font |
 | Anything else | Run `:checkhealth` and read the errors |
 
