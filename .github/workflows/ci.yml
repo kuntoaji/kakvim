@@ -39,3 +39,9 @@ jobs:
         run: nvim --clean --headless -l scripts/check-keymaps.lua
       - name: Start kakvim with no errors
         run: scripts/smoke-test.sh
+      - name: Install script links the config
+        run: |
+          export HOME="$RUNNER_TEMP/home" XDG_CONFIG_HOME="$RUNNER_TEMP/home/.config"
+          scripts/install.sh --no-ruby-lsp
+          scripts/install.sh --no-ruby-lsp
+          test "$(readlink "$XDG_CONFIG_HOME/nvim")" = "$PWD/nvim"

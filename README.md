@@ -26,7 +26,9 @@ kakvim uses what Neovim 0.12 ships with: the built-in plugin manager (`vim.pack`
 | [ruby-lsp](https://shopify.github.io/ruby-lsp/) | Ruby code intelligence | `gem install ruby-lsp` |
 | A [Nerd Font](https://www.nerdfonts.com) (optional) | File icons | `brew install --cask font-jetbrains-mono-nerd-font` |
 
-On Linux, install the same tools with your package manager. Check that your distribution ships Neovim 0.12 or newer. If it does not, use the AppImage or tarball from the [Neovim releases page](https://github.com/neovim/neovim/releases). Install ruby-lsp with the same Ruby version that your project uses.
+On Linux, install the same tools with your package manager. Check that your distribution ships Neovim 0.12 or newer. If it does not, use the AppImage or tarball from the [Neovim releases page](https://github.com/neovim/neovim/releases).
+
+ruby-lsp runs with the Ruby on your `PATH`, so install it once for each Ruby version that your projects use. With [mise](https://mise.jdx.dev), add `ruby-lsp` to `~/.default-gems`. mise then installs ruby-lsp in every new Ruby version.
 
 ## Installation
 
@@ -36,10 +38,18 @@ On Linux, install the same tools with your package manager. Check that your dist
    mv ~/.config/nvim ~/.config/nvim.bak
    ```
 
-2. Clone the repository and link the `nvim` folder:
+2. Clone the repository and run the install script:
 
    ```sh
    git clone https://github.com/kuntoaji/kakvim.git ~/kakvim
+   ~/kakvim/scripts/install.sh
+   ```
+
+   The script links `~/kakvim/nvim` to `~/.config/nvim`. If `~/.config/nvim` already exists, the script moves it to `~/.config/nvim.bak.<timestamp>`. Then the script asks if you want to install ruby-lsp for your current Ruby. The default answer is No. To skip the question, add `--with-ruby-lsp` or `--no-ruby-lsp`.
+
+   To install by hand instead, link the folder yourself:
+
+   ```sh
    mkdir -p ~/.config
    ln -s ~/kakvim/nvim ~/.config/nvim
    ```
