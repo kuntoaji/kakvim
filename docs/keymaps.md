@@ -63,8 +63,11 @@ Inside the file tree (press `g?` for the full list):
 | `a` | Create a file. End the name with `/` to create a folder | plugin |
 | `r` | Rename | plugin |
 | `d` | Delete | plugin |
-| `<C-v>` | Open in a vertical split | plugin |
+| `s` / `<C-v>` | Open in a vertical split | kakvim / plugin |
+| `i` / `<C-x>` | Open in a horizontal split | kakvim / plugin |
 | `g?` | Show all file tree keys | plugin |
+
+kakvim changes the `s` key in the file tree. In nvim-tree, `s` runs the system opener by default. In kakvim, `s` opens a vertical split, so `s` no longer runs the system opener.
 
 ### Windows (panes)
 

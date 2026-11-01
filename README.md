@@ -137,6 +137,7 @@ nvim +42 app/models/user.rb   # open a file at line 42
 | --- | --- |
 | Open or close the file tree | `\g` |
 | Open a file or folder in the tree | Move to it, then press `<CR>` |
+| Open a file from the tree in a vertical / horizontal split | Move to it, then press `s` / `i` |
 | Create a file in the tree | `a`, type the name, press `<CR>` |
 | Find a file by name | `\t`, type part of the name, such as `models/user` |
 | Open a recent file | `\fr` |
@@ -144,6 +145,8 @@ nvim +42 app/models/user.rb   # open a file at line 42
 | Open a Rails file by type | `:Emodel user`, `:Econtroller users`, `:Eview users/index` |
 
 In any finder popup, press `<CR>` to open the result, or `<C-v>` to open it in a vertical split.
+
+In the file tree, `s` opens a vertical split. kakvim changes this key, so `s` no longer runs the system opener.
 
 ### 3. Move around and edit
 

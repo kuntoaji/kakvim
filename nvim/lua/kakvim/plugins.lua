@@ -65,6 +65,17 @@ require('which-key').setup({
 })
 
 require('nvim-tree').setup({
+  on_attach = function(bufnr)
+    local api = require('nvim-tree.api')
+    api.map.on_attach.default(bufnr)
+
+    -- NERDTree keys for opening a file in a split
+    local function map(lhs, rhs, desc)
+      vim.keymap.set('n', lhs, rhs, { buffer = bufnr, nowait = true, silent = true, desc = desc })
+    end
+    map('s', api.node.open.vertical, 'Open: Vertical Split')
+    map('i', api.node.open.horizontal, 'Open: Horizontal Split')
+  end,
   renderer = {
     icons = {
       show = { file = nerd_font, folder = nerd_font, folder_arrow = nerd_font, git = nerd_font },

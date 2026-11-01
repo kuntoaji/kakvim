@@ -26,6 +26,7 @@ All notable changes to kakvim are listed here. The format follows [Keep a Change
 - `scripts/install.sh` links the config and, if you want, installs ruby-lsp.
 - `nvim-pack-lock.json` pins every plugin to an exact commit.
 - MIT license, contributing guide, issue and pull request templates, and CI.
+- NERDTree split keys in the file tree: `s` for a vertical split and `i` for a horizontal split. `s` no longer runs the system opener in the file tree.
 
 ### Fixed
 
