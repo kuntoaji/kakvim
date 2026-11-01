@@ -76,6 +76,11 @@ require('nvim-tree').setup({
     map('s', api.node.open.vertical, 'Open: Vertical Split')
     map('i', api.node.open.horizontal, 'Open: Horizontal Split')
   end,
+  actions = {
+    open_file = {
+      window_picker = { enable = false },
+    },
+  },
   renderer = {
     icons = {
       show = { file = nerd_font, folder = nerd_font, folder_arrow = nerd_font, git = nerd_font },

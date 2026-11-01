@@ -69,6 +69,8 @@ Inside the file tree (press `g?` for the full list):
 
 kakvim changes the `s` key in the file tree. In nvim-tree, `s` runs the system opener by default. In kakvim, `s` opens a vertical split, so `s` no longer runs the system opener.
 
+kakvim also turns off the nvim-tree "Pick window" prompt. Every open key uses the last window you were in before you moved to the tree.
+
 ### Windows (panes)
 
 | Keys | Mode | Action | Source |
