@@ -1,22 +1,7 @@
 #!/usr/bin/env sh
-# Link kakvim into the Neovim config folder and, if you want, install ruby-lsp.
-# Usage: scripts/install.sh [--with-ruby-lsp | --no-ruby-lsp]
+# Check the requirements and link kakvim into the Neovim config folder.
+# Usage: scripts/install.sh
 set -eu
-
-usage() {
-  echo 'Usage: scripts/install.sh [--with-ruby-lsp | --no-ruby-lsp]' >&2
-  exit 1
-}
-
-[ $# -le 1 ] || usage
-
-ruby_lsp=ask
-case "${1-}" in
-  '') ;;
-  --with-ruby-lsp) ruby_lsp=yes ;;
-  --no-ruby-lsp) ruby_lsp=no ;;
-  *) usage ;;
-esac
 
 repo=$(cd "$(dirname "$0")/.." && pwd -P)
 config="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -29,6 +14,26 @@ if ! command -v nvim >/dev/null 2>&1; then
 fi
 if [ "$(nvim --clean --headless +'lua io.stdout:write(vim.fn.has("nvim-0.12"))' +qa 2>/dev/null)" != 1 ]; then
   echo 'kakvim requires Neovim 0.12 or newer.' >&2
+  exit 1
+fi
+
+# Check the other requirements before changing anything. Install them yourself
+missing=
+for tool in git rg tree-sitter cc ruby-lsp; do
+  command -v "$tool" >/dev/null 2>&1 || missing="$missing $tool"
+done
+if [ -n "$missing" ]; then
+  echo 'Error: kakvim needs these tools:' >&2
+  for tool in $missing; do
+    case "$tool" in
+      git | cc) hint='macOS: xcode-select --install' ;;
+      rg) hint='macOS: brew install ripgrep' ;;
+      tree-sitter) hint='macOS: brew install tree-sitter-cli' ;;
+      ruby-lsp) hint='gem install ruby-lsp, with the Ruby of your projects' ;;
+    esac
+    echo "  $tool ($hint)" >&2
+  done
+  echo 'Install them, then run this script again. On Linux, use your package manager. See Requirements in README.md' >&2
   exit 1
 fi
 
@@ -45,40 +50,5 @@ else
   ln -s "$repo/nvim" "$dest"
   echo "Linked $dest -> $repo/nvim"
 fi
-
-# ruby-lsp is optional. Ask only when a person is at the terminal
-if command -v ruby-lsp >/dev/null 2>&1; then
-  echo "ruby-lsp already installed: $(command -v ruby-lsp)"
-  ruby_lsp=no
-elif [ "$ruby_lsp" = ask ]; then
-  ruby_lsp=no
-  if [ -t 0 ] && command -v ruby >/dev/null 2>&1; then
-    printf 'Install ruby-lsp for %s? [y/N] ' "$(ruby -e 'print RUBY_DESCRIPTION')"
-    read -r answer || answer=
-    case "$answer" in
-      y | Y | yes | YES) ruby_lsp=yes ;;
-    esac
-  fi
-fi
-
-if [ "$ruby_lsp" = yes ]; then
-  gem=$(command -v gem || true)
-  if [ -z "$gem" ]; then
-    echo 'Skipped ruby-lsp: gem not found. Install Ruby first.' >&2
-  elif [ "$gem" = /usr/bin/gem ]; then
-    echo 'Skipped ruby-lsp: gem is the system Ruby. Use a version manager such as mise, then run: gem install ruby-lsp' >&2
-  else
-    gem install ruby-lsp
-  fi
-elif ! command -v ruby-lsp >/dev/null 2>&1; then
-  echo 'Skipped ruby-lsp. Install it later with: gem install ruby-lsp'
-fi
-
-# Report the other requirements. Install them yourself, see Requirements in README.md
-for tool in git rg tree-sitter cc; do
-  if ! command -v "$tool" >/dev/null 2>&1; then
-    echo "Missing: $tool (see Requirements in README.md)"
-  fi
-done
 
 echo 'Done. Start nvim and wait for the plugin downloads to finish.'

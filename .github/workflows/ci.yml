@@ -39,9 +39,21 @@ jobs:
         run: nvim --clean --headless -l scripts/check-keymaps.lua
       - name: Start kakvim with no errors
         run: scripts/smoke-test.sh
-      - name: Install script links the config
+      - name: Install script checks the requirements and links the config
         run: |
           export HOME="$RUNNER_TEMP/home" XDG_CONFIG_HOME="$RUNNER_TEMP/home/.config"
-          scripts/install.sh --no-ruby-lsp
-          scripts/install.sh --no-ruby-lsp
+          # The runner has no ruby-lsp, so the script must stop and change nothing
+          if scripts/install.sh; then exit 1; fi
+          test ! -e "$XDG_CONFIG_HOME/nvim"
+          # Stub the tools that the runner does not have
+          mkdir -p "$RUNNER_TEMP/bin"
+          for tool in rg tree-sitter ruby-lsp; do
+            if ! command -v "$tool" >/dev/null; then
+              printf '#!/bin/sh\n' > "$RUNNER_TEMP/bin/$tool"
+              chmod +x "$RUNNER_TEMP/bin/$tool"
+            fi
+          done
+          export PATH="$RUNNER_TEMP/bin:$PATH"
+          scripts/install.sh
+          scripts/install.sh
           test "$(readlink "$XDG_CONFIG_HOME/nvim")" = "$PWD/nvim"

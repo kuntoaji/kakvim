@@ -45,7 +45,7 @@ ruby-lsp runs with the Ruby on your `PATH`, so install it once for each Ruby ver
    ~/your/path/kakvim/scripts/install.sh
    ```
 
-   The script links `~/your/path/kakvim/nvim` to `~/.config/nvim`. If `~/.config/nvim` already exists, the script moves it to `~/.config/nvim.bak.<timestamp>`. Then the script asks if you want to install ruby-lsp for your current Ruby. The default answer is No. To skip the question, add `--with-ruby-lsp` or `--no-ruby-lsp`.
+   The script first checks the [Requirements](#requirements). If a tool is missing, the script stops with an error and changes nothing. Install the tool, then run the script again. Next, the script links `~/your/path/kakvim/nvim` to `~/.config/nvim`. If `~/.config/nvim` already exists, the script moves it to `~/.config/nvim.bak.<timestamp>`.
 
    To install by hand instead, link the folder yourself:
 
